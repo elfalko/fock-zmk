@@ -5,7 +5,7 @@
 &default_transform {
     // each half has 7 columns
     col-offset = <7>;
-}
+};
 
 &kscan0 {
     col-gpios =
