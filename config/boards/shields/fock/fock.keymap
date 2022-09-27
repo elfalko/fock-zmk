@@ -7,8 +7,8 @@
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/keys.h>
 /* #include <dt-bindings/zmk/bt.h> */
-/* #include <dt-bindings/zmk/ext_power.h> */
 
+/* #include <dt-bindings/zmk/ext_power.h> */
 #define DEF 0
 #define SPC 1
 #define NUM 2
@@ -21,13 +21,13 @@
 // ------------------------------------------------------------------------------------------------------------
 // |  ESC  |  1   |  2   |  3    |  4   |  5  |    |  6  |  7   |  8    |  9   |   0   |   `   |
 // |  TAB  |  Q   |  W   |  E    |  R   |  T  |    |  Y  |  U   |  I    |  O   |   P   |   -   |
-// |  CTRL |LGUI A|LALT S|LSHFT D|LCTL F|  G  |    |  H  |RCTL J|RSHFT K|RALT L|RGUI ; |   '   |
+// |  CAPS |LGUI A|LALT S|LSHFT D|LCTL F|  G  |    |  H  |RCTL J|RSHFT K|RALT L|RGUI ; |   '   |
 // | SHIFT |  Z   |  X   |  C    |  V   |  B  |    |  N  |  M   |  ,    |  .   |   /   | SHIFT |
-//                | ALT  | GUI   | ESC  |L1 BSP|    | SPC | ENT  | L2    | GUI  |
-			bindings = <
+//                | ALT  | TAB   | ESC  |L1 BSP|    | SPC | ENT  | L2    | GUI  |
+		bindings = <
 &kp ESC   &kp N1      &kp N2      &kp N3       &kp N4       &kp N5             &kp N6     &kp N7         &kp N8         &kp N9       &kp N0        &kp GRAVE
 &kp TAB   &kp Q       &kp W       &kp E        &kp R        &kp T              &kp Y      &kp U          &kp I          &kp O        &kp P         &kp MINUS
-&kp LCTRL &mt LGUI A  &mt LALT S  &mt LSHFT D  &mt LCTRL F  &kp G              &kp H      &mt RCTRL J    &mt RSHFT K    &mt RALT L   &mt RGUI SEMI &kp SQT
+&kp CAPS  &mt LGUI A  &mt LALT S  &mt LSHFT D  &mt LCTRL F  &kp G              &kp H      &mt RCTRL J    &mt RSHFT K    &mt RALT L   &mt RGUI SEMI &kp SQT
 &kp LSHFT &kp Z       &kp X       &kp C        &kp V        &kp B              &kp N      &kp M          &kp COMMA      &kp DOT      &kp FSLH      &kp RSHFT
                       &kp LALT    &kp TAB      &lt SPC ESC  &kp BSPC           &kp SPACE  &lt NUM RET    &kp DEL        &kp RGUI
 			>;
