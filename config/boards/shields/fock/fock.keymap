@@ -6,13 +6,15 @@
 
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/keys.h>
-/* #include <dt-bindings/zmk/bt.h> */
+#include <dt-bindings/zmk/outputs.h>
+#include <dt-bindings/zmk/bt.h>
+#include <dt-bindings/zmk/ext_power.h>
 
-/* #include <dt-bindings/zmk/ext_power.h> */
 #define DEF 0
 #define SPC 1
 #define NUM 2
 #define MVM 3
+#define KCC 4
 
 
 / {
@@ -21,17 +23,17 @@
 
 		default_layer {
 // ------------------------------------------------------------------------------------------------------------
-// |   `   |  1   |  2   |    3   |    4   |  5  |    |  6  |    7   |   8   |  9   |   0   |   `  |
-// |  TAB  |  Q   |  W   |    E   |    R   |  T  |    |  Y  |    U   |   I   |  O   |   P   |   -  |
-// |  CAPS |LGUI A|LALT S| LSFT D | LCTL F |  G  |    |  H  | RCTL J |RSFT K |RALT L|RGUI ; |CAPS '|
-// | SHIFT |  Z   |  X   |    C   |    V   |  B  |    |  N  |    M   |   ,   |  .   |   /   | SHFT |
-//                | ALT  |CAPS TAB|LNUM ESC| BSP |    | SPC |LSPC RET|MVM DEL| GUI  |
+// |   `   |  1   |  2   |    3   |    4   |  5  |    |  6  |    7   |   8   |   9   |   0   |   `  |
+// |  TAB  |  Q   |  W   |    E   |    R   |  T  |    |  Y  |    U   |   I   |   O   |   P   |   -  |
+// |  CAPS |LGUI A|LALT S| LSFT D | LCTL F |  G  |    |  H  | RCTL J |RSFT K |RALT L |RGUI ; |CAPS '|
+// | SHIFT |  Z   |  X   |    C   |    V   |  B  |    |  N  |    M   |   ,   |   .   |   /   | SHFT |
+//                | ALT  |CAPS TAB|LNUM ESC| BSP |    | SPC |LSPC RET|MVM DEL|KCC GUI|
 		bindings = <
 &kp GRAVE &kp N1      &kp N2      &kp N3         &kp N4       &kp N5             &kp N6     &kp N7         &kp N8         &kp N9       &kp N0        &kp GRAVE
 &kp TAB   &kp Q       &kp W       &kp E          &kp R        &kp T              &kp Y      &kp U          &kp I          &kp O        &kp P         &kp MINUS
 &kp CAPS  &mt LGUI A  &mt LALT S  &mt LSHFT D    &mt LCTRL F  &kp G              &kp H      &mt RCTRL J    &mt RSHFT K    &mt RALT L   &mt RGUI SEMI &mt CAPS SQT
 &kp LSHFT &kp Z       &kp X       &kp C          &kp V        &kp B              &kp N      &kp M          &kp COMMA      &kp DOT      &kp FSLH      &kp RSHFT
-                      &kp LALT    &mt CAPS TAB   &lt NUM ESC  &kp BSPC           &kp SPACE  &lt SPC RET    &lt MVM DEL        &kp RGUI
+                      &kp LALT    &mt CAPS TAB   &lt NUM ESC  &kp BSPC           &kp SPACE  &lt SPC RET    &lt MVM DEL    &mt KCC RGUI
 			>;
 		};
 
@@ -68,8 +70,8 @@
 
 		mvm_layer {
 // ------------------------------------------------------------------------------------------------------------
-// |     |     |     |     |     |     |    |     |     |     |     |     |     |
 // |     |     |     |  w  |     |     |    |     |     |     |     |     |     |
+// |     |     |     |     |     |     |    |     |     |     |     |     |     |
 // |     |     |  a  |  s  |  d  |     |    |LEFT |DOWN | UP  |RIGHT|     |     |    
 // |     |     |     |     |     |     |    |     |     |     |     |     |     |
 //             |     |     |     |     |    |     |     |     |     |
@@ -79,6 +81,23 @@
 &trans  &trans  &kp A   &kp S   &kp D   &trans    &kp LEFT  &kp DOWN  &kp UP  &kp RIGHT  &trans  &trans  
 &trans  &trans  &trans  &trans  &trans  &trans    &trans    &trans    &trans  &trans     &trans  &trans
                 &trans  &trans  &trans  &trans    &trans    &trans    &trans  &trans			>;
+		};
+
+		keyboard_control_layer {
+// ------------------------------------------------------------------------------------------------------------
+// |     |     |     |     |     |     |    |     |     |     |     |     |     |
+// |     |     |     |     |     |     |    |     |     | USB    |     |     |     |
+// |     |     |     |     |     |     |    |LEFT |     |OUT TOG|PWR TODO|     |     |    
+// |     |     |     |     |     |     |    |     |     | BT    |     |     |     |
+//             |     |     |     |     |    |     |     |     |     |
+// ext_power EP_TOG
+
+			bindings = <
+&trans  &trans  &trans  &trans  &trans  &trans    &trans     &trans     &trans        &trans  &trans  &trans
+&trans  &trans  &trans  &kp W   &trans  &trans    &trans     &bt BT_CLR &out OUT_USB  &trans  &trans  &trans
+&trans  &trans  &kp A   &kp S   &kp D   &trans    &bt BT_PRB &bt BT_NXT &out OUT_TOG  &trans  &trans  &trans  
+&trans  &trans  &trans  &trans  &trans  &trans    &trans     &trans     &out OUT_BLE  &trans  &trans  &trans
+                &trans  &trans  &trans  &trans    &trans     &trans     &trans        &trans			>;
 		};
 	};
 };
