@@ -85,19 +85,19 @@
 
 		keyboard_control_layer {
 // ------------------------------------------------------------------------------------------------------------
-// |     |     |     |     |     |     |    |     |     |     |     |     |     |
-// |     |     |     |     |     |     |    |     |     | USB    |     |     |     |
-// |     |     |     |     |     |     |    |LEFT |     |OUT TOG|PWR TODO|     |     |    
-// |     |     |     |     |     |     |    |     |     | BT    |     |     |     |
-//             |     |     |     |     |    |     |     |     |     |
+// |     |     |     |     |     |     |    |    |    |   |     |    |   |
+// |     |     |     |     |     |     |    |    |BT X|USB|     |    |   |
+// |     | BT1 | BT2 | BT3 | BT4 | BT5 |    |BT <|BT >|TOG|(PWR)|    |   |    
+// |     |     |     |     |     |     |    |    |    |BT |     |    |   |
+//             |     |     |     |     |    |    |    |   |     |
 // ext_power EP_TOG
 
 			bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans    &trans     &trans     &trans        &trans  &trans  &trans
-&trans  &trans  &trans  &kp W   &trans  &trans    &trans     &bt BT_CLR &out OUT_USB  &trans  &trans  &trans
-&trans  &trans  &kp A   &kp S   &kp D   &trans    &bt BT_PRB &bt BT_NXT &out OUT_TOG  &trans  &trans  &trans  
-&trans  &trans  &trans  &trans  &trans  &trans    &trans     &trans     &out OUT_BLE  &trans  &trans  &trans
-                &trans  &trans  &trans  &trans    &trans     &trans     &trans        &trans			>;
+&trans  &trans       &trans       &trans       &trans       &trans          &trans     &trans     &trans        &trans  &trans  &trans
+&trans  &trans       &trans       &trans       &trans       &trans          &trans     &bt BT_CLR &out OUT_USB  &trans  &trans  &trans
+&trans  &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4    &bt BT_PRV &bt BT_NXT &out OUT_TOG  &trans  &trans  &trans  
+&trans  &trans       &trans       &trans       &trans       &trans          &trans     &trans     &out OUT_BLE  &trans  &trans  &trans
+                     &trans       &trans       &trans       &trans          &trans     &trans     &trans        &trans			>;
 		};
 	};
 };
