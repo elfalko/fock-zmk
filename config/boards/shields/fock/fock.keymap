@@ -11,10 +11,11 @@
 #include <dt-bindings/zmk/ext_power.h>
 
 #define DEF 0
-#define SYM 1
-#define NUM 2
-#define MVM 3
-#define KCC 4
+#define CDH 1
+#define SYM 2
+#define NUM 3
+#define MVM 4
+#define KCC 5
 
 
 / {
@@ -22,17 +23,32 @@
 		compatible = "zmk,keymap";
 
 		default_layer {
-// ------------------------------------------------------------------------------------------------------------
-// |   `   |  1   |  2   |    3   |    4   |  5  |    |  6  |    7   |   8   |   9   |   0   |   `  |
+// |   `   |  1   |  2   |    3   |    4   |  5  |    |  6  |    7   |   8   |   9   |   0   |TG CDH|
 // |  TAB  |  Q   |  W   |    E   |    R   |  T  |    |  Y  |    U   |   I   |   O   |   P   |   -  |
 // |  CAPS |LGUI A|LALT S| LSFT D | LCTL F |  G  |    |  H  | RCTL J |RSFT K |RALT L |RGUI ; |CAPS '|
 // | SHIFT |  Z   |  X   |    C   |    V   |  B  |    |  N  |    M   |   ,   |   .   |   /   | SHFT |
 //                | ALT  |CAPS TAB|LNUM ESC| BSP |    |SPACE|LSYM RET|LMVM DEL|LKCC GUI|
-		bindings = <
-&kp GRAVE &kp N1      &kp N2      &kp N3         &kp N4       &kp N5             &kp N6     &kp N7         &kp N8         &kp N9       &kp N0        &kp GRAVE
+            bindings = <
+&kp GRAVE &kp N1      &kp N2      &kp N3         &kp N4       &kp N5             &kp N6     &kp N7         &kp N8         &kp N9       &kp N0        &to CDH
 &kp TAB   &kp Q       &kp W       &kp E          &kp R        &kp T              &kp Y      &kp U          &kp I          &kp O        &kp P         &kp MINUS
 &kp CAPS  &mt LGUI A  &mt LALT S  &mt LSHFT D    &mt LCTRL F  &kp G              &kp H      &mt RCTRL J    &mt RSHFT K    &mt RALT L   &mt RGUI SEMI &mt CAPS SQT
 &kp LSHFT &kp Z       &kp X       &kp C          &kp V        &kp B              &kp N      &kp M          &kp COMMA      &kp DOT      &kp FSLH      &kp RSHFT
+                      &kp LALT    &mt CAPS TAB   &lt NUM ESC  &kp BSPC           &kp SPACE  &lt SYM RET    &lt MVM DEL    &lt KCC RGUI
+			>;
+		};
+
+		colemak_dh_layer {
+// ------------------------------------------------------------------------------------------------------------
+// |   `   |  1   |  2   |   3    |    4   |  5  |    |  6  |    7   |   8   |   9  |   0  |TG DEF|
+// |  TAB  |  Q   |  W   |   F    |    P   |  B  |    |  J  |    L   |   U   |   Y  |   ;  |   -  |
+// |  CAPS |LGUI A|LALT R| LSFT S | LCTL T |  G  |    |  M  | RCTL N |RSFT E |RALT I|RGUI O|CAPS '|
+// | SHIFT |  Z   |  X   |    C   |    D   |  V  |    |  K  |    H   |   ,   |   .  |   /  | SHFT |
+//                | ALT  |CAPS TAB|LNUM ESC| BSP |    |SPACE|LSYM RET|LMVM DEL|LKCC GUI|
+            bindings = <
+&kp GRAVE &kp N1      &kp N2      &kp N3         &kp N4       &kp N5             &kp N6     &kp N7         &kp N8         &kp N9       &kp N0      &to DEF
+&kp TAB   &kp Q       &kp W       &kp F          &kp P        &kp B              &kp J      &kp L          &kp U          &kp Y        &kp SEMI    &kp MINUS
+&kp CAPS  &mt LGUI A  &mt LALT S  &mt LSHFT S    &mt LCTRL T  &kp G              &kp M      &mt RCTRL N    &mt RSHFT E    &mt RALT I   &mt RGUI O  &mt CAPS SQT
+&kp LSHFT &kp Z       &kp X       &kp C          &kp D        &kp B              &kp K      &kp H          &kp COMMA      &kp DOT      &kp FSLH    &kp RSHFT
                       &kp LALT    &mt CAPS TAB   &lt NUM ESC  &kp BSPC           &kp SPACE  &lt SYM RET    &lt MVM DEL    &lt KCC RGUI
 			>;
 		};
