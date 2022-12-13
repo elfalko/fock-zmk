@@ -47,8 +47,8 @@
             bindings = <
 &kp GRAVE &kp N1      &kp N2      &kp N3         &kp N4       &kp N5             &kp N6     &kp N7         &kp N8         &kp N9       &kp N0      &to DEF
 &kp TAB   &kp Q       &kp W       &kp F          &kp P        &kp B              &kp J      &kp L          &kp U          &kp Y        &kp SEMI    &kp MINUS
-&kp CAPS  &mt LGUI A  &mt LALT S  &mt LSHFT S    &mt LCTRL T  &kp G              &kp M      &mt RCTRL N    &mt RSHFT E    &mt RALT I   &mt RGUI O  &mt CAPS SQT
-&kp LSHFT &kp Z       &kp X       &kp C          &kp D        &kp B              &kp K      &kp H          &kp COMMA      &kp DOT      &kp FSLH    &kp RSHFT
+&kp CAPS  &mt LGUI A  &mt LALT R  &mt LSHFT S    &mt LCTRL T  &kp G              &kp M      &mt RCTRL N    &mt RSHFT E    &mt RALT I   &mt RGUI O  &mt CAPS SQT
+&kp LSHFT &kp Z       &kp X       &kp C          &kp D        &kp V              &kp K      &kp H          &kp COMMA      &kp DOT      &kp FSLH    &kp RSHFT
                       &kp LALT    &mt CAPS TAB   &lt NUM ESC  &kp BSPC           &kp SPACE  &lt SYM RET    &lt MVM DEL    &lt KCC RGUI
 			>;
 		};
@@ -86,15 +86,15 @@
 
 		mvm_layer {
 // ------------------------------------------------------------------------------------------------------------
-// |     |     |     |  w  |     |     |    |     |     |     |     |     |     |
 // |     |     |     |     |     |     |    |     |     |     |     |     |     |
-// |     |     |  a  |  s  |  d  |     |    |LEFT |DOWN | UP  |RIGHT|     |     |    
+// |     |     |     |     |     |     |    |     |     |     |     |     |     |
+// |     |     |     |     |     |     |    |LEFT |DOWN | UP  |RIGHT|     |     |    
 // |     |     |     |     |     |     |    |     |     |     |     |     |     |
 //             |     |     |     |     |    |     |     |     |     |
 			bindings = <
 &trans  &trans  &trans  &trans  &trans  &trans    &trans    &trans    &trans  &trans     &trans  &trans
-&trans  &trans  &trans  &kp W   &trans  &trans    &trans    &trans    &trans  &trans     &trans  &trans
-&trans  &trans  &kp A   &kp S   &kp D   &trans    &kp LEFT  &kp DOWN  &kp UP  &kp RIGHT  &trans  &trans  
+&trans  &trans  &trans  &trans  &trans  &trans    &trans    &trans    &trans  &trans     &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans    &kp LEFT  &kp DOWN  &kp UP  &kp RIGHT  &trans  &trans  
 &trans  &trans  &trans  &trans  &trans  &trans    &trans    &trans    &trans  &trans     &trans  &trans
                 &trans  &trans  &trans  &trans    &trans    &trans    &trans  &trans			>;
 		};
