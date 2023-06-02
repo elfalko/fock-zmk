@@ -10,7 +10,7 @@
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/ext_power.h>
 
-#define DEF 0
+#define QWE 0
 #define CDH 1
 #define SYM 2
 #define NUM 3
@@ -22,7 +22,7 @@
 	keymap {
 		compatible = "zmk,keymap";
 
-		default_layer {
+		QWERTY {
 // |   `   |  1   |  2   |    3   |    4   |  5  |    |  6  |    7   |   8   |   9   |   0   |TG CDH|
 // |  TAB  |  Q   |  W   |    E   |    R   |  T  |    |  Y  |    U   |   I   |   O   |   P   |   -  |
 // |  CAPS |LGUI A|LALT S| LSFT D | LCTL F |  G  |    |  H  | RCTL J |RSFT K |RALT L |RGUI ; |CAPS '|
@@ -37,15 +37,14 @@
 			>;
 		};
 
-		colemak_dh_layer {
-// ------------------------------------------------------------------------------------------------------------
-// |   `   |  1   |  2   |   3    |    4   |  5  |    |  6  |    7   |   8   |   9  |   0  |TG DEF|
+		COLEMAK_DH {
+// |   `   |  1   |  2   |   3    |    4   |  5  |    |  6  |    7   |   8   |   9  |   0  |TG QWE|
 // |  TAB  |  Q   |  W   |   F    |    P   |  B  |    |  J  |    L   |   U   |   Y  |   ;  |   -  |
 // |  CAPS |LGUI A|LALT R| LSFT S | LCTL T |  G  |    |  M  | RCTL N |RSFT E |RALT I|RGUI O|CAPS '|
 // | SHIFT |  Z   |  X   |    C   |    D   |  V  |    |  K  |    H   |   ,   |   .  |   /  | SHFT |
 //                | ALT  |CAPS TAB|LNUM ESC| BSP |    |SPACE|LSYM RET|LMVM DEL|LKCC GUI|
             bindings = <
-&kp GRAVE &kp N1      &kp N2      &kp N3         &kp N4       &kp N5             &kp N6     &kp N7         &kp N8         &kp N9       &kp N0      &to DEF
+&kp GRAVE &kp N1      &kp N2      &kp N3         &kp N4       &kp N5             &kp N6     &kp N7         &kp N8         &kp N9       &kp N0      &to QWE
 &kp TAB   &kp Q       &kp W       &kp F          &kp P        &kp B              &kp J      &kp L          &kp U          &kp Y        &kp SEMI    &kp MINUS
 &kp CAPS  &mt LGUI A  &mt LALT R  &mt LSHFT S    &mt LCTRL T  &kp G              &kp M      &mt RCTRL N    &mt RSHFT E    &mt RALT I   &mt RGUI O  &mt CAPS SQT
 &kp LSHFT &kp Z       &kp X       &kp C          &kp D        &kp V              &kp K      &kp H          &kp COMMA      &kp DOT      &kp FSLH    &kp RSHFT
@@ -53,8 +52,7 @@
 			>;
 		};
 
-		special_layer {
-// ------------------------------------------------------------------------------------------------------------
+		SYMBOLS {
 // | ESC |     |     |       |      |     |    |     |      |       |     |     |     |
 // |     |  !  |  @  |  {    |  }   |  %  |    |  ^  |  &   |  *    |  #  |  $  |     |
 // |     |     |  ~  |LSHFT (|LCTL )|     |    |     |RCTL =|RSHFT +|  -  |  _  |     |
@@ -69,7 +67,7 @@
                       &trans      &trans          &trans          &trans             &trans     &trans             &trans            &trans			>;
 		};
 
-		num_layer {
+		NUMBERS {
 // ------------------------------------------------------------------------------------------------------------
 // |     |     |     |     |     |     |    |     |     |     |     |     |     |
 // | F1  | F2  | F3  | F4  | F5  | F6  |    | F7  | F8  | F9  | F10 | F11 | F12 |
@@ -84,7 +82,7 @@
                 &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans			>;
 		};
 
-		mvm_layer {
+		MOVES {
 // ------------------------------------------------------------------------------------------------------------
 // |     |     |     |     |     |     |    |     |     |     |     |     |     |
 // |     |     |     |     |     |     |    |     |     |     |     |     |     |
@@ -99,7 +97,7 @@
                 &trans  &trans  &trans  &trans    &trans    &trans    &trans  &trans			>;
 		};
 
-		keyboard_control_layer {
+		CONN {
 // ------------------------------------------------------------------------------------------------------------
 // |     |     |     |     |     |     |    |    |    |   |     |    |   |
 // |     |     |     |     |     |     |    |    |BT X|USB|     |    |   |
