@@ -16,6 +16,7 @@
 #define NUM 3
 #define MVM 4
 #define KCC 5
+#define SWP 6
 
 
 / {
@@ -28,14 +29,18 @@
 // |  CAPS |LGUI A|LALT S| LSFT D | LCTL F |  G  |    |  H  | RCTL J |RSFT K |RALT L |RGUI ; |CAPS '|
 // | SHIFT |  Z   |  X   |    C   |    V   |  B  |    |  N  |    M   |   ,   |   .   |   /   | SHFT |
 //                | ALT  |CAPS TAB|LNUM ESC| BSP |    |SPACE|LSYM RET|LMVM DEL|LKCC GUI|
+
             bindings = <
-&kp GRAVE &kp N1      &kp N2      &kp N3         &kp N4       &kp N5             &kp N6     &kp N7         &kp N8         &kp N9       &kp N0        &to CDH
-&kp TAB   &kp Q       &kp W       &kp E          &kp R        &kp T              &kp Y      &kp U          &kp I          &kp O        &kp P         &kp MINUS
-&kp CAPS  &mt LGUI A  &mt LALT S  &mt LSHFT D    &mt LCTRL F  &kp G              &kp H      &mt RCTRL J    &mt RSHFT K    &mt RALT L   &mt RGUI SEMI &mt CAPS SQT
-&kp LSHFT &kp Z       &kp X       &kp C          &kp V        &kp B              &kp N      &kp M          &kp COMMA      &kp DOT      &kp FSLH      &kp RSHFT
-                      &kp LALT    &mt CAPS TAB   &lt NUM ESC  &kp BSPC           &kp SPACE  &lt SYM RET    &lt MVM DEL    &lt KCC RGUI
+&kp GRAVE &kp N1      &kp N2        &kp N3         &kp N4       &kp N5             &kp N6     &kp N7         &kp N8         &kp N9       &kp N0        &kp INS
+&kp TAB   &kp Q       &kp W         &kp E          &kp R        &kp T              &kp Y      &kp U          &kp I          &kp O        &kp P         &lt KCC MINUS
+&kp CAPS  &mt LGUI A  &mt LALT S    &mt LSHFT D    &mt LCTRL F  &kp G              &kp H      &mt RCTRL J    &mt RSHFT K    &mt RALT L   &mt RGUI SEMI &mt CAPS SQT
+&kp LSHFT &kp Z       &kp X         &kp C          &kp V        &kp B              &kp N      &kp M          &kp COMMA      &kp DOT      &kp FSLH      &kp RSHFT
+                      &mo SWP       &mt LALT TAB   &lt NUM ESC  &kp BSPC           &kp SPACE  &lt SYM RET    &lt MVM DEL    &lt SWP RGUI
 			>;
 		};
+
+// &to CDH
+// to get here
 
 		COLEMAK_DH {
 // |   `   |  1   |  2   |   3    |    4   |  5  |    |  6  |    7   |   8   |   9  |   0  |TG QWE|
@@ -84,17 +89,17 @@
 
 		MOVES {
 // ------------------------------------------------------------------------------------------------------------
-// |     |     |     |     |     |     |    |     |     |     |     |     |     |
-// |     |     |     |     |     |     |    |     |     |     |     |     |     |
-// |     |     |     |     |     |     |    |LEFT |DOWN | UP  |RIGHT|     |     |    
-// |     |     |     |     |     |     |    |     |     |     |     |     |     |
-//             |     |     |     |     |    |     |     |     |     |
+// |     |     |    |     |     |     |    |     |     |     |     |     |     |
+// |     |     |    |     |     |     |    |     |     |     |     |     |     |
+// |     |     |HOME|PG UP|PG DN| END |    |LEFT |DOWN | UP  |RIGHT|     |     |
+// |     |     |    |     |     |     |    |     |     |     |     |     |     |
+//             |    |     |     |     |    |     |     |     |     |
 			bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans    &trans    &trans    &trans  &trans     &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans    &trans    &trans    &trans  &trans     &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans    &kp LEFT  &kp DOWN  &kp UP  &kp RIGHT  &trans  &trans  
-&trans  &trans  &trans  &trans  &trans  &trans    &trans    &trans    &trans  &trans     &trans  &trans
-                &trans  &trans  &trans  &trans    &trans    &trans    &trans  &trans			>;
+&trans  &trans  &trans    &trans     &trans     &trans     &trans    &trans    &trans  &trans     &trans  &trans
+&trans  &trans  &trans    &trans     &trans     &trans     &trans    &trans    &trans  &trans     &trans  &trans
+&trans  &trans  &kp HOME  &kp PG_UP  &kp PG_DN  &kp END    &kp LEFT  &kp DOWN  &kp UP  &kp RIGHT  &trans  &trans  
+&trans  &trans  &trans    &trans     &trans     &trans     &trans    &trans    &trans  &trans     &trans  &trans
+                &trans    &trans     &trans     &trans     &trans    &trans    &trans  &trans			>;
 		};
 
 		CONN {
@@ -112,6 +117,23 @@
 &trans  &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4    &bt BT_PRV &bt BT_NXT &out OUT_TOG  &trans  &trans  &trans  
 &trans  &trans       &trans       &trans       &trans       &trans          &trans     &trans     &out OUT_BLE  &trans  &trans  &trans
                      &trans       &trans       &trans       &trans          &trans     &trans     &trans        &trans			>;
+		};
+
+
+		YTREWQ {
+// This but mirrored
+// |   `   |  1   |  2   |    3   |    4   |  5  |    |  6  |    7   |   8   |   9   |   0   |INSERT|
+// |  TAB  |  Q   |  W   |    E   |    R   |  T  |    |  Y  |    U   |   I   |   O   |   P   |   -  |
+// |  CAPS |LGUI A|LALT S| LSFT D | LCTL F |  G  |    |  H  | RCTL J |RSFT K |RALT L |RGUI ; |CAPS '|
+// | SHIFT |  Z   |  X   |    C   |    V   |  B  |    |  N  |    M   |   ,   |   .   |   /   | SHFT |
+//                | ALT  |CAPS TAB|LNUM ESC| BSP |    |SPACE|LSYM RET|LMVM DEL|LKCC GUI|
+            bindings = <
+&to INS       &kp N0         &kp N9      &kp N8       &kp N7       &kp N6            &kp N5    &kp N4       &kp N3        &kp N2      &kp N1      &kp GRAVE
+&kp MINUS     &kp P          &kp O       &kp I        &kp U        &kp Y             &kp T     &kp R        &kp E         &kp W       &kp Q       &kp TAB 
+&mt CAPS SQT  &mt RGUI SEMI  &mt RALT L  &mt RSHFT K  &mt RCTRL J  &kp H             &kp G     &mt LCTRL F  &mt LSHFT D   &mt LALT S  &mt LGUI A  &kp CAPS
+&kp RSHFT     &kp FSLH       &kp DOT     &kp COMMA    &kp M        &kp N             &kp B     &kp V        &kp C         &kp X       &kp Z       &kp LSHFT
+                             &trans      &mt MVM DEL  &lt SYM RET  &kp SPACE         &kp BSPC  &lt NUM ESC  &lt CAPS TAB  &trans
+			>;
 		};
 	};
 };
