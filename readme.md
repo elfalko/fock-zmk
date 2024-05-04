@@ -5,7 +5,7 @@ The default keymap is QWERTY, has home row mods, a number layer and a special ch
 
 ## Visualization
 
-[This keymap drawer](https://github.com/caksoylar/keymap-drawerhttps://github.com/caksoylar/keymap-drawer) can be used to display it.
+[This keymap drawer](https://github.com/caksoylar/keymap-drawer) can be used [to display it](https://keymap-drawer.streamlit.app/?zmk_url=https%3A%2F%2Fgithub.com%2Felfalko%2Ffock-zmk%2Fblob%2Fmaster%2Fconfig%2Fboards%2Fshields%2Ffock%2Ffock.keymap).
 
 Use this link:
 
