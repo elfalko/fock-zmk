@@ -31,7 +31,7 @@
 //                | ALT  |CAPS TAB|LNUM ESC| BSP |    |SPACE|LSYM RET|LMVM DEL|LKCC GUI|
 
             bindings = <
-&kp GRAVE &kp N1      &kp N2        &kp N3         &kp N4       &kp N5             &kp N6     &kp N7         &kp N8         &kp N9       &kp N0        &kp INS
+&kp GRAVE &kp N1      &kp N2        &kp N3         &kp N4       &kp N5             &kp N6     &kp N7         &kp N8         &kp N9       &kp N0        &out OUT_TOG
 &kp TAB   &kp Q       &kp W         &kp E          &kp R        &kp T              &kp Y      &kp U          &kp I          &kp O        &kp P         &lt KCC MINUS
 &kp CAPS  &mt LGUI A  &mt LALT S    &mt LSHFT D    &mt LCTRL F  &kp G              &kp H      &mt RCTRL J    &mt RSHFT K    &mt RALT L   &mt RGUI SEMI &mt CAPS SQT
 &kp LSHFT &kp Z       &kp X         &kp C          &kp V        &kp B              &kp N      &kp M          &kp COMMA      &kp DOT      &kp FSLH      &kp RSHFT
