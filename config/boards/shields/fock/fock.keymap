@@ -24,7 +24,7 @@
 		compatible = "zmk,keymap";
 
 		QWERTY {
-// |   `   |  1   |  2   |    3   |    4   |  5  |    |  6  |    7   |   8   |   9   |   0   |TG CDH|
+// |   `   |  1   |  2   |    3   |    4   |  5  |    |  6  |    7   |   8   |   9   |   0   |TG Insert|
 // |  TAB  |  Q   |  W   |    E   |    R   |  T  |    |  Y  |    U   |   I   |   O   |   P   |   -  |
 // |  CAPS |LGUI A|LALT S| LSFT D | LCTL F |  G  |    |  H  | RCTL J |RSFT K |RALT L |RGUI ; |CAPS '|
 // | SHIFT |  Z   |  X   |    C   |    V   |  B  |    |  N  |    M   |   ,   |   .   |   /   | SHFT |
@@ -41,6 +41,7 @@
 
 // &to CDH
 // to get here
+// CURRENTLY UNUSED
 
 		COLEMAK_DH {
 // |   `   |  1   |  2   |   3    |    4   |  5  |    |  6  |    7   |   8   |   9  |   0  |TG QWE|
