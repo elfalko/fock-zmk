@@ -18,8 +18,31 @@
 #define KCC 5
 #define SWP 6
 
-
 / {
+  behaviours {
+    hml: home_row_mod_left {
+      compatible = "zmk,behavior-hold-tap";
+      #binding-cells = <2>;
+      flavor = "balanced";
+      require-prior-idle-ms = <150>;
+      tapping-term-ms = <280>;
+      quick-tap-ms = <175>;
+      bindings = <&kp>, <&kp>;
+      #hold-trigger-key-positions = < ... >; // List of keys on the right side of the keyboard
+      hold-trigger-on-release;
+    };
+    hmr: home_row_mod_right {
+      compatible = "zmk,behavior-hold-tap";
+      #binding-cells = <2>;
+      flavor = "balanced";
+      require-prior-idle-ms = <150>;
+      tapping-term-ms = <280>;
+      quick-tap-ms = <175>;
+      bindings = <&kp>, <&kp>;
+      #hold-trigger-key-positions = < ... >; // List of keys on the left side of the keyboard
+      hold-trigger-on-release;
+    };
+  }
 	keymap {
 		compatible = "zmk,keymap";
 
@@ -31,11 +54,11 @@
 //                | ALT  |CAPS TAB|LNUM ESC| BSP |    |SPACE|LSYM RET|LMVM DEL|LKCC GUI|
 
             bindings = <
-&kp GRAVE &kp N1      &kp N2        &kp N3         &kp N4       &kp N5             &kp N6     &kp N7         &kp N8         &kp N9       &kp N0        &out OUT_TOG
-&kp TAB   &kp Q       &kp W         &kp E          &kp R        &kp T              &kp Y      &kp U          &kp I          &kp O        &kp P         &lt KCC MINUS
-&kp CAPS  &mt LGUI A  &mt LALT S    &mt LSHFT D    &mt LCTRL F  &kp G              &kp H      &mt RCTRL J    &mt RSHFT K    &mt RALT L   &mt RGUI SEMI &mt CAPS SQT
-&kp LSHFT &kp Z       &kp X         &kp C          &kp V        &kp B              &kp N      &kp M          &kp COMMA      &kp DOT      &kp FSLH      &kp RSHFT
-                      &mo SWP       &mt LALT TAB   &lt NUM ESC  &kp BSPC           &kp SPACE  &lt SYM RET    &lt MVM DEL    &lt SWP RGUI
+&kp GRAVE &kp N1      &kp N2        &kp N3         &kp N4       &kp N5             &kp N6     &kp N7         &kp N8         &kp N9       &kp N0         &out OUT_TOG
+&kp TAB   &kp Q       &kp W         &kp E          &kp R        &kp T              &kp Y      &kp U          &kp I          &kp O        &kp P          &lt KCC MINUS
+&kp CAPS  &hml LGUI A &hml LALT S   &hml LSHFT D   &hml LCTRL F &kp G              &kp H      &hmr RCTRL J   &hmr RSHFT K   &hmr RALT L  &hmr RGUI SEMI &hmr CAPS SQT
+&kp LSHFT &kp Z       &kp X         &kp C          &kp V        &kp B              &kp N      &kp M          &kp COMMA      &kp DOT      &kp FSLH       &kp RSHFT
+                      &mo SWP       &hml LALT TAB   &lt NUM ESC  &kp BSPC           &kp SPACE  &lt SYM RET    &lt MVM DEL    &lt SWP RGUI
 			>;
 		};
 
@@ -52,9 +75,9 @@
             bindings = <
 &kp GRAVE &kp N1      &kp N2      &kp N3         &kp N4       &kp N5             &kp N6     &kp N7         &kp N8         &kp N9       &kp N0      &to QWE
 &kp TAB   &kp Q       &kp W       &kp F          &kp P        &kp B              &kp J      &kp L          &kp U          &kp Y        &kp SEMI    &kp MINUS
-&kp CAPS  &mt LGUI A  &mt LALT R  &mt LSHFT S    &mt LCTRL T  &kp G              &kp M      &mt RCTRL N    &mt RSHFT E    &mt RALT I   &mt RGUI O  &mt CAPS SQT
+&kp CAPS  &hml LGUI A  &hml LALT R  &hml LSHFT S    &hml LCTRL T  &kp G              &kp M      &hmr RCTRL N    &hmr RSHFT E    &hmr RALT I   &hmr RGUI O  &hmr CAPS SQT
 &kp LSHFT &kp Z       &kp X       &kp C          &kp D        &kp V              &kp K      &kp H          &kp COMMA      &kp DOT      &kp FSLH    &kp RSHFT
-                      &kp LALT    &mt CAPS TAB   &lt NUM ESC  &kp BSPC           &kp SPACE  &lt SYM RET    &lt MVM DEL    &lt KCC RGUI
+                      &kp LALT    &hml CAPS TAB   &lt NUM ESC  &kp BSPC           &kp SPACE  &lt SYM RET    &lt MVM DEL    &lt KCC RGUI
 			>;
 		};
 
@@ -68,7 +91,7 @@
             bindings = <
 &kp ESC   &trans      &trans      &trans          &trans          &trans             &trans     &trans             &trans            &trans       &trans       &trans
 &trans    &kp EXCL    &kp AT      &kp LBRC        &kp RBRC        &kp PERCENT        &kp CARET  &kp AMPS           &kp STAR          &kp HASH     &kp DOLLAR   &trans
-&trans    &trans      &kp TILDE   &mt LSHFT LPAR  &mt LCTRL RPAR  &trans             &trans     &mt RCTRL EQUAL    &mt RSHFT PLUS    &kp MINUS    &kp UNDER    &trans
+&trans    &trans      &kp TILDE   &hml LSHFT LPAR  &hml LCTRL RPAR  &trans             &trans     &hmr RCTRL EQUAL    &hmr RSHFT PLUS    &kp MINUS    &kp UNDER    &trans
 &trans    &trans      &kp GRAVE   &kp LBKT        &kp RBKT        &trans             &trans     &kp FSLH           &kp PIPE          &kp BSLH     &kp QMARK    &trans
                       &trans      &trans          &trans          &trans             &trans     &trans             &trans            &trans			>;
 		};
@@ -131,9 +154,9 @@
             bindings = <
 &to INS       &kp N0         &kp N9      &kp N8       &kp N7       &kp N6            &kp N5    &kp N4       &kp N3        &kp N2      &kp N1      &kp GRAVE
 &kp MINUS     &kp P          &kp O       &kp I        &kp U        &kp Y             &kp T     &kp R        &kp E         &kp W       &kp Q       &kp TAB 
-&mt CAPS SQT  &mt RGUI SEMI  &mt RALT L  &mt RSHFT K  &mt RCTRL J  &kp H             &kp G     &mt LCTRL F  &mt LSHFT D   &mt LALT S  &mt LGUI A  &kp CAPS
+&hml CAPS SQT  &hml RGUI SEMI  &hml RALT L  &hml RSHFT K  &hml RCTRL J  &kp H             &kp G     &hmr LCTRL F  &hmr LSHFT D   &hmr LALT S  &hmr LGUI A  &kp CAPS
 &kp RSHFT     &kp FSLH       &kp DOT     &kp COMMA    &kp M        &kp N             &kp B     &kp V        &kp C         &kp X       &kp Z       &kp LSHFT
-                             &trans      &mt MVM DEL  &lt SYM RET  &kp SPACE         &kp BSPC  &lt NUM ESC  &lt CAPS TAB  &trans
+                             &trans      &hml MVM DEL  &lt SYM RET  &kp SPACE         &kp BSPC  &lt NUM ESC  &lt CAPS TAB  &trans
 			>;
 		};
 	};
